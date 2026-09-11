@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gungyuda | Personal Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #0b1120;
+            color: white;
+        }
+
+        /* NAVBAR */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11, 17, 32, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 700;
+            color: #a78bfa;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #cbd5e1;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #a78bfa;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+            background:
+                radial-gradient(circle at 50% 30%,
+                rgba(124, 58, 237, 0.35),
+                transparent 35%),
+                #0b1120;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hello {
+            color: #a78bfa;
+            font-size: 18px;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: clamp(50px, 9vw, 90px);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #a78bfa;
+        }
+
+        .hero h3 {
+            font-size: 25px;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: #94a3b8;
+            font-size: 17px;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 27px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-main {
+            background: #a78bfa;
+            color: #1e1b4b;
+        }
+
+        .btn-main:hover {
+            background: #c4b5fd;
+            transform: translateY(-4px);
+        }
+
+        .btn-outline {
+            border: 1px solid #a78bfa;
+            color: #a78bfa;
+        }
+
+        .btn-outline:hover {
+            background: #a78bfa;
+            color: #1e1b4b;
+        }
+
+        /* SECTION */
+        section {
+            padding: 100px 8%;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .title h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .title p {
+            color: #64748b;
+        }
+
+        /* ABOUT */
+        .about-container {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .avatar {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: linear-gradient(
+                135deg,
+                #7c3aed,
+                #a78bfa,
+                #4f46e5
+            );
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 90px;
+            font-weight: bold;
+            box-shadow: 0 0 60px rgba(167, 139, 250, 0.25);
+        }
+
+        .about-text h3 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #94a3b8;
+            margin-bottom: 15px;
+        }
+
+        /* SKILLS */
+        .skills-section {
+            background: #0f172a;
+        }
+
+        .skills-container {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 30px 20px;
+            text-align: center;
+            background: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-color: #a78bfa;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .skill-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        /* PROJECTS */
+        .project-container {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #111827;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid #1e293b;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: #a78bfa;
+        }
+
+        .project-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            background: linear-gradient(
+                135deg,
+                #312e81,
+                #7c3aed
+            );
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .project-content a {
+            text-decoration: none;
+            color: #a78bfa;
+            font-weight: bold;
+        }
+
+        /* CONTACT */
+        .contact-section {
+            background: #0f172a;
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .contact-box p {
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .socials a {
+            text-decoration: none;
+            color: white;
+            background: #111827;
+            border: 1px solid #1e293b;
+            padding: 13px 22px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .socials a:hover {
+            color: #a78bfa;
+            border-color: #a78bfa;
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #475569;
+            border-top: 1px solid #1e293b;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 850px) {
+
+            header {
+                padding: 15px 5%;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 13px;
+            }
+
+            section {
+                padding: 80px 5%;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                justify-items: center;
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .project-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-links {
+                font-size: 11px;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h3 {
+                font-size: 20px;
+            }
+
+            .avatar {
+                width: 220px;
+                height: 220px;
+                font-size: 70px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+
+        <div class="logo">
+            Gungyuda.
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="hello">
+                WELCOME TO MY PORTFOLIO
+            </div>
+
+            <h1>
+                I'm <span>Gungyuda</span>
+            </h1>
+
+            <h3>
+                Web Developer • Designer • Creator
+            </h3>
+
+            <p>
+                Saya membangun website yang menarik, modern,
+                responsive, dan nyaman digunakan.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="btn btn-main">
+                    Explore Projects
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="title">
+            <h2>About Me</h2>
+            <p>Sedikit tentang saya</p>
+        </div>
+
+        <div class="about-container">
+
+            <div class="avatar">
+                G
+            </div>
+
+            <div class="about-text">
+
+                <h3>Halo, saya Gungyuda 👋</h3>
+
+                <p>
+                    Saya memiliki ketertarikan terhadap dunia
+                    teknologi, website, desain, dan kreativitas.
+                </p>
+
+                <p>
+                    Bagi saya, website bukan hanya tentang kode,
+                    tetapi juga bagaimana membuat pengalaman yang
+                    menyenangkan bagi penggunanya.
+                </p>
+
+                <p>
+                    Saya terus belajar dan mengembangkan kemampuan
+                    untuk menghasilkan karya digital yang lebih baik.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section class="skills-section" id="skills">
+
+        <div class="title">
+            <h2>My Skills</h2>
+            <p>Teknologi dan kemampuan yang saya pelajari</p>
+        </div>
+
+        <div class="skills-container">
+
+            <div class="skill-card">
+                <div class="skill-icon">🌐</div>
+                <h3>HTML</h3>
+                <p>Struktur dan semantic website.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🎨</div>
+                <h3>CSS</h3>
+                <p>Design dan responsive layout.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">⚡</div>
+                <h3>JavaScript</h3>
+                <p>Interaksi dan fungsi website.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">💻</div>
+                <h3>Web Design</h3>
+                <p>Membuat tampilan website modern.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+        <div class="title">
+            <h2>My Projects</h2>
+            <p>Beberapa karya yang saya buat</p>
+        </div>
+
+        <div class="project-container">
+
+            <div class="project-card">
+
+                <div class="project-image">
+                    🖥️
+                </div>
+
+                <div class="project-content">
+
+                    <h3>Personal Portfolio</h3>
+
+                    <p>
+                        Website portfolio pribadi dengan
+                        desain modern dan responsive.
+                    </p>
+
+                    <a href="#">
+                        View Project →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-image">
+                    🛍️
+                </div>
+
+                <div class="project-content">
+
+                    <h3>Online Shop</h3>
+
+                    <p>
+                        Konsep website toko online sederhana
+                        menggunakan HTML dan CSS.
+                    </p>
+
+                    <a href="#">
+                        View Project →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-image">
+                    🚀
+                </div>
+
+                <div class="project-content">
+
+                    <h3>Landing Page</h3>
+
+                    <p>
+                        Landing page modern untuk
+                        mempromosikan sebuah produk.
+                    </p>
+
+                    <a href="#">
+                        View Project →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+
+        <div class="contact-box">
+
+            <div class="title">
+                <h2>Let's Connect</h2>
+                <p>
+                    Jangan ragu untuk menghubungi saya.
+                    Saya akan senang mendengar dari Anda.
+                </p>
+            </div>
+
+            <div class="socials">
+
+                <a href="mailto:emailkamu@gmail.com">
+                    📧 Email
+                </a>
+
+                <a href="#">
+                    📷 Instagram
+                </a>
+
+                <a href="#">
+                    💼 LinkedIn
+                </a>
+
+                <a href="#">
+                    🐙 GitHub
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © <span id="year"></span> Gungyuda.
+            Made with ❤️
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        // Tahun otomatis
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        // Efek sederhana saat scroll
+        window.addEventListener("scroll", function() {
+
+            const header = document.querySelector("header");
+
+            if (window.scrollY > 50) {
+                header.style.boxShadow =
+                    "0 5px 30px rgba(0,0,0,0.3)";
+            } else {
+                header.style.boxShadow = "none";
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
